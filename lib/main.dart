@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sugar/splash.dart';
 
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'hello',
+      title: 'Sugar Rush Store',
       theme: ThemeData(
         fontFamily: 'RalewayRegular',
         primarySwatch: Colors.pink,

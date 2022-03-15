@@ -98,7 +98,7 @@ class Sign extends StatelessWidget {
                   style: TextStyle(color: Color(0xFF828282)),
                 ),
                 const SizedBox(
-                  height: 35,
+                  height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

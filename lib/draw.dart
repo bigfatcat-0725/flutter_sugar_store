@@ -37,13 +37,13 @@ class Draw extends StatelessWidget {
             ListTile(
               title: Row(children: [
                 Icon(
-                  Icons.settings_outlined,
+                  Icons.description_outlined,
                   color: Colors.white,
                 ),
                 SizedBox(
                   width: 10,
                 ),
-                Text('Settings')
+                Text('Feedback')
               ]),
               textColor: Colors.white,
               onTap: () {},
@@ -65,13 +65,13 @@ class Draw extends StatelessWidget {
             ListTile(
               title: Row(children: [
                 Icon(
-                  Icons.description_outlined,
+                  Icons.settings_outlined,
                   color: Colors.white,
                 ),
                 SizedBox(
                   width: 10,
                 ),
-                Text('Feedback')
+                Text('Settings')
               ]),
               textColor: Colors.white,
               onTap: () {},

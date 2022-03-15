@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sugar/models/category.dart';
+import 'package:flutter_sugar/models/products.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Home extends StatelessWidget {
@@ -43,120 +45,14 @@ class Home extends StatelessWidget {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: [
-                  TextButton(
-                    onPressed: () {},
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          "assets/menu-candy.png",
-                          width: MediaQuery.of(context).size.width * 0.17,
-                          height: 50,
-                        ),
-                        Text(
-                          "Candies",
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ],
-                    ),
+                children: List.generate(
+                  demoCategory.length,
+                  (index) => MenuCard(
+                    icon: demoCategory[index].icon,
+                    title: demoCategory[index].title,
+                    press: () {},
                   ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          "assets/menu-chocolate.png",
-                          width: MediaQuery.of(context).size.width * 0.17,
-                          height: 50,
-                        ),
-                        Text(
-                          "Chocolates",
-                          style: TextStyle(color: Colors.black54),
-                        ),
-                      ],
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          "assets/menu-cookie.png",
-                          width: MediaQuery.of(context).size.width * 0.17,
-                          height: 50,
-                        ),
-                        Text(
-                          "Cookies",
-                          style: TextStyle(color: Colors.black54),
-                        ),
-                      ],
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          "assets/menu-cupcake.png",
-                          width: MediaQuery.of(context).size.width * 0.17,
-                          height: 50,
-                        ),
-                        Text(
-                          "Cupcakes",
-                          style: TextStyle(color: Colors.black54),
-                        ),
-                      ],
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          "assets/menu-donut.png",
-                          width: MediaQuery.of(context).size.width * 0.17,
-                          height: 50,
-                        ),
-                        Text(
-                          "Donuts",
-                          style: TextStyle(color: Colors.black54),
-                        ),
-                      ],
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          "assets/menu-macarons.png",
-                          width: MediaQuery.of(context).size.width * 0.17,
-                          height: 50,
-                        ),
-                        Text(
-                          "Macarons",
-                          style: TextStyle(color: Colors.black54),
-                        ),
-                      ],
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          "assets/menu-surprise.png",
-                          width: MediaQuery.of(context).size.width * 0.17,
-                          height: 50,
-                        ),
-                        Text(
-                          "GiftBox",
-                          style: TextStyle(color: Colors.black54),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
             SizedBox(
@@ -164,28 +60,42 @@ class Home extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              height: 800,
+              height: MediaQuery.of(context).size.height,
               child: GridView.count(
                 crossAxisCount: 2,
                 children: List.generate(
-                  10,
+                  demoProduct.length,
                   (index) {
                     return Center(
-                      child: Container(
-                        width: 170,
-                        height: 170,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color(0xFFDDDDDD),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Candy $index',
-                              style: TextStyle(color: Colors.black),
-                            ),
-                          ],
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Container(
+                          width: 170,
+                          height: 170,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                demoProduct[index].image,
+                                width: 130,
+                                height: 110,
+                              ),
+                              Text(
+                                demoProduct[index].title,
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "\$" + demoProduct[index].price.toString(),
+                                style: TextStyle(color: Colors.black),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     );
@@ -195,6 +105,39 @@ class Home extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class MenuCard extends StatelessWidget {
+  const MenuCard({
+    Key? key,
+    required this.icon,
+    required this.title,
+    required this.press,
+  }) : super(key: key);
+
+  final String icon;
+  final String title;
+  final VoidCallback press;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: press,
+      child: Column(
+        children: [
+          Image.asset(
+            icon,
+            width: MediaQuery.of(context).size.width * 0.17,
+            height: 50,
+          ),
+          Text(
+            title,
+            style: TextStyle(color: Colors.black),
+          ),
+        ],
       ),
     );
   }

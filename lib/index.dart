@@ -21,18 +21,12 @@ class _IndexState extends State<Index> {
         backgroundColor: Color(0xFFFFEEF1),
         iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
-        title: Text(
-          "",
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
         actions: [
           Center(
             child: Padding(
               padding: const EdgeInsets.only(right: 16),
               child: Text(
-                "Hello _username",
+                "_username 님",
                 style: TextStyle(
                   color: Colors.black,
                 ),
