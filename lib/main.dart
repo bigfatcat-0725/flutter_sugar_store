@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sugar/login.dart';
 import 'package:flutter_svg/svg.dart';
 
 void main() {
@@ -19,14 +20,14 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        body: Login(),
+        body: Sign(),
       ),
     );
   }
 }
 
-class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+class Sign extends StatelessWidget {
+  const Sign({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,16 +47,11 @@ class Login extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SvgPicture.asset(
-                  'assets/macaron2.svg',
-                  width: 188,
-                  height: 148,
-                ),
                 const SizedBox(
-                  height: 10,
+                  height: 74,
                 ),
                 const Text(
-                  "Login",
+                  "Create Account",
                   style: TextStyle(
                     fontSize: 36,
                     fontWeight: FontWeight.bold,
@@ -66,7 +62,7 @@ class Login extends StatelessWidget {
                   height: 10,
                 ),
                 const Text(
-                  "Please sign in to continue",
+                  "Please fiil the input below here",
                   style: TextStyle(
                     fontSize: 13,
                     color: Colors.white,
@@ -83,14 +79,19 @@ class Login extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Dont' have an account? ",
-                      style: TextStyle(color: Colors.white),
+                      "Alredy have an account? ",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                      ),
                     ),
                     Text(
-                      "Sign Up",
+                      "Login",
                       style: TextStyle(
-                          color: Color(0xFFFF748C),
-                          fontWeight: FontWeight.bold),
+                        color: Color(0xFFFF748C),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
                     ),
                   ],
                 ),
@@ -166,7 +167,14 @@ class CustomForm extends StatelessWidget {
             height: 20,
           ),
           CustomTextFormField(
-            text: "Password",
+            text: "Password(At least 6 characters)",
+            icon: CupertinoIcons.lock,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          CustomTextFormField(
+            text: "Confirm Password",
             icon: CupertinoIcons.lock,
           ),
           SizedBox(
@@ -174,11 +182,11 @@ class CustomForm extends StatelessWidget {
           ),
           TextButton(
             child: const Text(
-              "Login",
+              "Sign Up",
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 14),
+                  fontSize: 18),
             ),
             onPressed: () {},
             style: TextButton.styleFrom(
@@ -220,7 +228,7 @@ class CustomTextFormField extends StatelessWidget {
                   icon,
                   color: Color(0xFF666666),
                 ),
-                hintText: "Enter $text",
+                hintText: "$text",
                 hintStyle: TextStyle(
                   color: Color(0xFF666666),
                 ),

@@ -61,13 +61,18 @@ class Login extends StatelessWidget {
                   children: [
                     Text(
                       "Dont' have an account? ",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                      ),
                     ),
                     Text(
                       "Sign Up",
                       style: TextStyle(
-                          color: Color(0xFFFF748C),
-                          fontWeight: FontWeight.bold),
+                        color: Color(0xFFFF748C),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
                     ),
                   ],
                 ),
@@ -76,7 +81,10 @@ class Login extends StatelessWidget {
                 ),
                 Text(
                   "Or connect with",
-                  style: TextStyle(color: Color(0xFF828282)),
+                  style: TextStyle(
+                    color: Color(0xFF828282),
+                    fontSize: 13,
+                  ),
                 ),
                 const SizedBox(
                   height: 35,
@@ -155,7 +163,7 @@ class CustomForm extends StatelessWidget {
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 14),
+                  fontSize: 18),
             ),
             onPressed: () {},
             style: TextButton.styleFrom(
@@ -197,7 +205,7 @@ class CustomTextFormField extends StatelessWidget {
                   icon,
                   color: Color(0xFF666666),
                 ),
-                hintText: "Enter $text",
+                hintText: "$text",
                 hintStyle: TextStyle(
                   color: Color(0xFF666666),
                 ),
