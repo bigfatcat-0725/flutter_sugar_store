@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sugar/index.dart';
+import 'package:flutter_sugar/login.dart';
 
 class Sign extends StatelessWidget {
   const Sign({Key? key}) : super(key: key);
@@ -8,7 +10,15 @@ class Sign extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
+        leading: TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
         backgroundColor: Color(0xFF383838),
         elevation: 0,
       ),
@@ -60,12 +70,22 @@ class Sign extends StatelessWidget {
                         fontSize: 14,
                       ),
                     ),
-                    Text(
-                      "Login",
-                      style: TextStyle(
-                        color: Color(0xFFFF748C),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Login(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                          color: Color(0xFFFF748C),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
                       ),
                     ),
                   ],
@@ -163,7 +183,14 @@ class CustomForm extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   fontSize: 18),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Index(),
+                ),
+              );
+            },
             style: TextButton.styleFrom(
                 backgroundColor: const Color(0xFFFF748C),
                 minimumSize: const Size(199.75, 51),

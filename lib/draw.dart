@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sugar/splash.dart';
 
 class Draw extends StatelessWidget {
   const Draw({
@@ -15,6 +16,9 @@ class Draw extends StatelessWidget {
           children: [
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.1,
+            ),
+            SizedBox(
+              height: 10,
             ),
             ListTile(
               title: Row(children: [
@@ -84,7 +88,14 @@ class Draw extends StatelessWidget {
                 Text('Log Out')
               ]),
               textColor: Colors.white,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Splash(),
+                  ),
+                );
+              },
             ),
           ],
         ),
